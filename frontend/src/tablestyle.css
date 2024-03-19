@@ -1,0 +1,27 @@
+.bordered-table{
+    border-collapse:collapse;
+    width:80%;
+   
+  
+}
+.bordered-table th, .bordered-table td{
+    border:1px solid;
+    padding:8px;
+    text-align: center;
+}
+/* .tab_img{
+    background-image: url("https://images.pexels.com/photos/4062312/pexels-photo-4062312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+
+    height: 100%;
+} */
+.tab1_img{
+    background-image: url("caredit.jpeg");
+    background-size: cover;
+    height: 100%;
+}
+.mainimg{
+    background-image: url(caredit.jpeg);
+    background-size: cover;
+    height: 100vh;
+}

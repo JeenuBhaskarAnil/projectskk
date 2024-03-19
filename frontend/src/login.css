@@ -1,0 +1,43 @@
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .login-container {
+      width: 90%;
+    }
+  }
+  @media (max-width: 768px) {
+    .background-image {
+      background-size: contain; /* Adjust the size as needed for smaller screens */
+      /* Add more styles for smaller screens if necessary */
+    }
+  }

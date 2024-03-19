@@ -1,0 +1,59 @@
+.card {
+    width: 80%;
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+   
+    border-radius: 20px;
+     padding: 10px; 
+  }
+  
+  .card-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .card-body {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* .form-group {
+    margin:"10px"
+  }
+   */
+  label {
+    display: block;
+    font-size: 18px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .card {
+      width: 90%;
+    }
+  }

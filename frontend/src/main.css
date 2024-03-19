@@ -1,0 +1,58 @@
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Set height to full viewport height */
+    /* background-image: url('https://example.com/background.jpg');  */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    overflow: hidden; /* Hide any overflow content */
+  }
+  
+  .button-container {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Adjust the left position as needed */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .button {
+    width: 350px; /* Initial width */
+    padding: 10px 50px;
+    margin-bottom: 30px; /* Add margin between buttons */
+    margin-left: 50px;
+    text-align: center;
+    background-color: #464dc8;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  
+  .button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .background-container {
+      height: auto; /* Adjust height to auto for smaller screens */
+    }
+  
+    .button-container {
+      left: 5px; /* Adjust the left position for smaller screens */
+    }
+  
+    .button {
+      width: 100%; /* Adjust width to 100% for smaller screens */
+    }
+    .login-container {
+      background-image: url('https://img.freepik.com/free-photo/blue-smooth-textured-paper-background_53876-103923.jpg?w=900&t=st=1710755152~exp=1710755752~hmac=ccc382b698bc4ed33f8d0e9dff60f6cf7ca64580b4a2c0146330b816b4a1c316'); /* Replace with the path to your image */
+      background-size: 100vw auto; /* Set width to 100vw and height auto to maintain aspect ratio */
+      background-position: center;
+      /* Add other styles as needed */
+    }
+    
+  }
