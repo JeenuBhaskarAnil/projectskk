@@ -1,30 +1,33 @@
 # Use Node.js as the base image
 FROM node:14-alpine AS build
 
-# Set working directory
-WORKDIR /app
+# Set working directory for backend
+WORKDIR /app/backend
 
-# Copy package.json and package-lock.json files
-COPY package*.json ./
-
-# Install dependencies
+# Copy package.json and package-lock.json files for backend
+COPY backend/package*.json ./
+# Install backend dependencies
 RUN npm install --silent
+
+# Set working directory for frontend
+WORKDIR /app/frontend
+
+# Copy package.json and package-lock.json files for frontend
+COPY frontend/package*.json ./
+# Install frontend dependencies
+RUN npm install --silent
+
+# Go back to the root directory
+WORKDIR /app
 
 # Copy the entire application
 COPY . .
 
-# Build the React app
-RUN npm run build
+# Build the frontend
+RUN cd frontend && npm run build
 
-# Stage 2: Serve the production build with a lightweight HTTP Server
-FROM nginx:alpine
-
-# Copy the build output from the previous stage
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose port 80
+# Expose port for backend (assuming backend runs on port 3000)
 EXPOSE 3000
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
-
+# Start backend and frontend servers with PM2
+CMD ["pm2-runtime", "start", "backend/server.js", "--name", "backend", "--", "frontend"]
