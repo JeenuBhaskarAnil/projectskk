@@ -1,22 +1,39 @@
-# Build frontend
-FROM node:latest AS frontend-build
-WORKDIR /app/frontend
-COPY frontend/package*.json ./
-RUN npm install
-COPY frontend .
-RUN npm i --legacy-peer-deps
-RUN npm run build
+# Use Node.js as the base image
+FROM node:latest AS build
 
-# Build backend
-FROM node:latest AS backend-build
+# Set working directory for backend
 WORKDIR /app/backend
+
+# Copy backend package.json and package-lock.json files
 COPY backend/package*.json ./
-RUN npm install
+
+# Install backend dependencies
+RUN npm install --silent
+
+# Copy backend files
 COPY backend .
 
-# Final image
-FROM node:latest
+# Set working directory for frontend
+WORKDIR /app/frontend
+
+# Copy frontend package.json and package-lock.json files
+COPY frontend/package*.json ./
+
+# Install frontend dependencies
+RUN npm install --silent
+
+# Copy frontend files
+COPY frontend .
+
+# Go back to the root directory
 WORKDIR /app
-COPY --from=frontend-build /app/frontend/build ./frontend
-COPY --from=backend-build /app/backend .
-CMD ["pm2-runtime", "start", "server.js", "--name", "backend", "--", "npm", "start", "--prefix", "frontend"]
+
+# Build the frontend
+RUN cd frontend && npm run build
+
+# Expose ports for both frontend (3000) and backend (5000)
+EXPOSE 3000
+EXPOSE 5000
+RUN npm install pm2 -g
+# Start both frontend and backend servers with PM2
+CMD ["pm2-runtime", "start", "backend/server.js", "--name", "backend", "--", "frontend"]
