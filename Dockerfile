@@ -36,5 +36,5 @@ EXPOSE 3000
 EXPOSE 5000
 RUN npm install pm2 -g
 # Start both frontend and backend servers with PM2
-CMD ["sh", "-c", "pm2-runtime start backend/server.js --name backend && cd .. && cd frontend && pm2-runtime start npm -- start --name frontend"]
+CMD ["sh", "-c", "pm2-runtime start backend/server.js --name backend && cd /app/frontend/ && pm2-runtime start npm -- start --name frontend"]
 
