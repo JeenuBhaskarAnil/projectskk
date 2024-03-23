@@ -13,7 +13,6 @@ WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm install
 COPY backend .
-RUN npm run build
 
 # Final image
 FROM node:latest
