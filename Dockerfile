@@ -1,5 +1,5 @@
 # Use Node.js as the base image
-FROM node:14-alpine AS build
+FROM node:latest AS build
 
 # Set working directory for backend
 WORKDIR /app/backend
