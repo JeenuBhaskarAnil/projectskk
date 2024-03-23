@@ -25,7 +25,6 @@ COPY . .
 
 # Build the frontend
 RUN cd frontend && npm run build
-RUN cd ../backend && npm run build
 
 # Expose port for backend (assuming backend runs on port 3000)
 EXPOSE 5000
