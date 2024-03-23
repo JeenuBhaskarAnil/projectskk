@@ -1,34 +1,22 @@
-# Use Node.js as the base image
-FROM node:latest AS build
-
-# Set working directory for backend
-WORKDIR /app/backend
-
-# Copy package.json and package-lock.json files for backend
-COPY backend/package*.json ./
-# Install backend dependencies
-RUN npm install --silent
-
-# Set working directory for frontend
+# Build frontend
+FROM node:latest AS frontend-build
 WORKDIR /app/frontend
-
-# Copy package.json and package-lock.json files for frontend
 COPY frontend/package*.json ./
-# Install frontend dependencies
-RUN npm install --silent
+RUN npm install
+COPY frontend .
+RUN npm run build
 
-# Go back to the root directory
+# Build backend
+FROM node:latest AS backend-build
+WORKDIR /app/backend
+COPY backend/package*.json ./
+RUN npm install
+COPY backend .
+RUN npm run build
+
+# Final image
+FROM node:latest
 WORKDIR /app
-
-# Copy the entire application
-COPY . .
-
-# Build the frontend
-RUN cd frontend && npm run build
-
-# Expose port for backend (assuming backend runs on port 3000)
-EXPOSE 5000
-EXPOSE 3000
-RUN npm install pm2 -g
-# Start backend and frontend servers with PM2
-CMD ["pm2-runtime", "start", "backend/server.js", "--name", "backend"]
+COPY --from=frontend-build /app/frontend/build ./frontend
+COPY --from=backend-build /app/backend .
+CMD ["pm2-runtime", "start", "server.js", "--name", "backend", "--", "npm", "start", "--prefix", "frontend"]
