@@ -27,7 +27,7 @@ COPY . .
 RUN cd frontend && npm run build
 
 # Expose port for backend (assuming backend runs on port 3000)
-EXPOSE 3000
+EXPOSE 5000
 RUN npm install pm2 -g
 # Start backend and frontend servers with PM2
 CMD ["pm2-runtime", "start", "backend/server.js", "--name", "backend", "--", "frontend"]
