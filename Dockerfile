@@ -31,13 +31,8 @@ WORKDIR /app
 # Build the frontend
 RUN cd frontend && npm run build
 
-# Expose ports for both frontend (3000) and backend (5000)
+# Expose port for frontend (3000)
 EXPOSE 3000
-EXPOSE 5000
-RUN npm install pm2 -g
-# Start both frontend and backend servers with PM2
-CMD ["sh", "-c","cd /app/frontend/ && pm2-runtime start \"npm start\" --name frontend"]
-CMD ["sh", "-c", "cd /app/backend/ && pm2-runtime start \"npm start\" --name backend"]
 
-
-
+# Command to start the frontend server
+CMD ["npm", "start", "--prefix", "/app/frontend/"]
