@@ -12,7 +12,7 @@ const Register=()=>{
     const handlesubmit=(e)=>{
         e.preventDefault();
         console.log(formdata5)
-        axios.post('http://localhost:5000/registration',formdata5).then((result)=>{
+        axios.post('http://18.214.89.116:5000/registration',formdata5).then((result)=>{
             console.log(result.data)
             
         })
