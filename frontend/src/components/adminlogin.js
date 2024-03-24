@@ -16,7 +16,7 @@ const AdminLogin = ({ history }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://18.214.89.116:5000/admin', {
+      const response = await axios.post('http://54.146.229.17:5000/admin', {
         username,
         password,
       });
