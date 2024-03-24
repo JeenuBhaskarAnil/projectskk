@@ -53,7 +53,7 @@ const LoginVisitorForm = () =>{
   const handlesubmit=(e)=>{
       e.preventDefault();
       console.log(formdata1)
-      axios.post('http://localhost:5000/addform',{formdata1}).then((result)=>{
+      axios.post('http://54.146.229.17:5000/addform',{formdata1}).then((result)=>{
          // console.log(result.data)
           // alert(result.data)
           if(result.status === 200){
