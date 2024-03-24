@@ -6,7 +6,7 @@
 // const Actions=()=>{
 //     let [project,setProject]=useState([])//let data=[]
 //     useEffect(()=>{
-//         axios.get('http://localhost:5000/getproject').then((response)=>{
+//         axios.get('http://54.146.229.17:5000/getproject').then((response)=>{
 //        console.log(response.data.projectdata);
 //        setProject(response.data.projectdata);
 //         });
@@ -62,14 +62,14 @@ const Actions=()=>{
     
     let [project,setProject]=useState([])//let data=[]
     useEffect(()=>{
-        axios.get('http://localhost:5000/getproject').then((response)=>{
+        axios.get('http://54.146.229.17:5000/getproject').then((response)=>{
        console.log(response.data.projectdata);
        setProject(response.data.projectdata);
         });
     },[]);
     const Deletestu=(id)=>{
         console.log(id)
-        axios.delete('http://localhost:5000/deleteuser1/'+id)
+        axios.delete('http://54.146.229.17:5000/deleteuser1/'+id)
         .then(res=>{console.log(res.data.msg)
         alert("data deleted succesfully")
         window.location.reload()
