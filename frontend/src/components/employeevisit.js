@@ -18,7 +18,7 @@ const EmployeeVisit = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await axios.get('http://18.214.89.116:5000/getpro');
+                const response = await axios.get('http://54.146.229.17:5000/getpro');
                 setProject2(response.data.prodata);
                 setFilteredData(response.data.prodata); // Initialize filteredData with all data
             } catch (error) {
