@@ -10,7 +10,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post('http://localhost:5000/login', {
+//       const response = await axios.post('http://18.214.89.116:5000/login', {
 //         username,
 //         password,
 //       });
@@ -68,7 +68,7 @@ const Login = ({ history }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://54.173.162.200:5000/login', {
+      const response = await axios.post('http://18.214.89.116:5000/login', {
         username,
         password,
       });
