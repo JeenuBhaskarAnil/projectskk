@@ -12,7 +12,7 @@ const Adminpage = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/getpro');
+                const response = await axios.get('http://18.214.89.116:5000/getpro');
                 setProject2(response.data.prodata);
                 setLoading(false);
             } catch (error) {
@@ -25,7 +25,7 @@ const Adminpage = () => {
     }, []);
     const Deletestu2=(id)=>{
         console.log(id)
-        axios.delete('http://localhost:5000/deleteuser2/'+id)
+        axios.delete('http://18.214.89.116:5000/deleteuser2/'+id)
         .then(res=>{console.log(res.data.msg)
         alert("data deleted succesfully")
         window.location.reload()
