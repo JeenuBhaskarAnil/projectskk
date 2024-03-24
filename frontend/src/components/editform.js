@@ -20,7 +20,7 @@ const Editform=()=>{
     const {id}=useParams()
     
     useEffect(()=>{
-        axios.get('http://54.173.162.200:5000/getprojectbyid/'+id)
+        axios.get('http://18.214.89.116:5000/getprojectbyid/'+id)
         .then((res)=>{
             console.log(res.data)
             // setFormdata1(res.data.projectdata)
@@ -32,7 +32,7 @@ const Editform=()=>{
     const handlesubmit=(e)=>{
         e.preventDefault();
         
-        axios.put('http://54.173.162.200:5000/updateproject/'+id,{formdata1}).then((result)=>{
+        axios.put('http://18.214.89.116:5000/updateproject/'+id,{formdata1}).then((result)=>{
            // console.log(result.data)
             // alert(result.data.msg)
             if(result.status === 200){
